@@ -8,15 +8,7 @@ output: html_document
 ## Homework 1
 
 ## Problem 0.2
-```{r}
-usethis::create_github_token()
-```
-
-```{r}
-gitcreds::gitcreds_set()
-```
-
-Loading the penguin datasets
+Loading the penguin data sets
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
@@ -58,5 +50,17 @@ ggsave("penguins_scatterplot.png")
 ```
 
 ## Problem 2
-
+Creating a data frame
+```{r}
+df = data.frame(
+  sample = rnorm(10),
+  logical_vec = rnorm(10)>0,
+  char_vec = sample(letters, 10, replace = TRUE),
+  factor_vec = factor(sample(c("A", "B", "C"), 10, replace = TRUE))
+)
+```
+Viewing the data frame
+```{r}
+df
+```
 
