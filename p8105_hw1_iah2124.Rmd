@@ -64,3 +64,13 @@ Viewing the data frame
 df
 ```
 
+Means of each variable
+```{r}
+mean(df$sample)
+mean(df$logical_vec)
+mean(df$char_vec)
+mean(df$factor_vec)
+```
+You can find the mean of the data frame sample, you can also find the mean of the logical vector. These variables are numeric or logical, indicating that a mean value can be calculated. For the variables character vector and factor vector, no mean can be calculated. This is because these variables are neither numeric or logical. 
+
+

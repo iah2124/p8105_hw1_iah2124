@@ -416,17 +416,35 @@ length is 200.92mm.</p>
 )</code></pre>
 <p>Viewing the data frame</p>
 <pre class="r"><code>df</code></pre>
-<pre><code>##         sample logical_vec char_vec factor_vec
-## 1  -0.65496343        TRUE        m          A
-## 2  -0.21757919       FALSE        e          A
-## 3  -0.06985848       FALSE        c          B
-## 4   1.09444099       FALSE        l          B
-## 5  -1.49570710        TRUE        p          A
-## 6   0.49123548       FALSE        g          C
-## 7  -0.53890704       FALSE        y          A
-## 8   1.35949028       FALSE        s          B
-## 9   1.11769297       FALSE        i          A
-## 10  0.45686807        TRUE        l          B</code></pre>
+<pre><code>##        sample logical_vec char_vec factor_vec
+## 1   0.5170630       FALSE        h          C
+## 2  -0.5894375        TRUE        s          A
+## 3  -1.1471562        TRUE        h          A
+## 4   0.3855393       FALSE        i          A
+## 5   1.1980410        TRUE        f          A
+## 6  -0.3097206       FALSE        j          A
+## 7   0.7023225        TRUE        f          B
+## 8  -1.5326298       FALSE        q          C
+## 9   0.3721697       FALSE        t          A
+## 10  1.1544451       FALSE        q          B</code></pre>
+<p>Means of each variable</p>
+<pre class="r"><code>mean(df$sample)</code></pre>
+<pre><code>## [1] 0.07506366</code></pre>
+<pre class="r"><code>mean(df$logical_vec)</code></pre>
+<pre><code>## [1] 0.4</code></pre>
+<pre class="r"><code>mean(df$char_vec)</code></pre>
+<pre><code>## Warning in mean.default(df$char_vec): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>mean(df$factor_vec)</code></pre>
+<pre><code>## Warning in mean.default(df$factor_vec): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>You can find the mean of the data frame sample, you can also find the
+mean of the logical vector. These variables are numeric or logical,
+indicating that a mean value can be calculated. For the variables
+character vector and factor vector, no mean can be calculated. This is
+because these variables are neither numeric or logical.</p>
 </div>
 
 
