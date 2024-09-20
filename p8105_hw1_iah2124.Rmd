@@ -1,0 +1,39 @@
+---
+title: "p8105_hw1_iah2124"
+author: "Iris Hart"
+date: "2024-09-20"
+output: html_document
+---
+
+## Homework 1
+
+## Problem 0.2
+
+Loading the penguin datasets
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+## Problem 1
+Loading tidyverse package - includes dplyr for data manipulation
+```{r}
+library(tidyverse)
+```
+
+Size of the dataset
+```{r}
+num_rows = nrow(penguins)
+num_cols = ncol(penguins)
+```
+
+Finding the mean flipper length from the penguins dataset, excluding any missing values
+```{r}
+mean_flipper_length = mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+
+This dataset contains information about penguins including identifying #, which species island they are from, bill length(mm), bill depth(mm), flipper length(mm), body mass(g), sex, and year. There are 344 observations in the dataset, with 8 variables. The mean flipper length is 200.92mm. 
+
+
+
+
+
