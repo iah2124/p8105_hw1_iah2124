@@ -8,6 +8,13 @@ output: html_document
 ## Homework 1
 
 ## Problem 0.2
+```{r}
+usethis::create_github_token()
+```
+
+```{r}
+gitcreds::gitcreds_set()
+```
 
 Loading the penguin datasets
 ```{r}
@@ -45,6 +52,11 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = s
   labs(x = "Bill Length (mm)", y = "Flipper Length (mm)", title = "Scatterplot of Flipper Length vs Bill Length")
 ```
 
+Saving the scatter plot 
+```{r}
+ggsave("penguins_scatterplot.png")
+```
 
+## Problem 2
 
 
