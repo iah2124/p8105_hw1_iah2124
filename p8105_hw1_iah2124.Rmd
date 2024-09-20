@@ -26,13 +26,24 @@ num_rows = nrow(penguins)
 num_cols = ncol(penguins)
 ```
 
-Finding the mean flipper length from the penguins dataset, excluding any missing values
+Finding the mean flipper length from the penguins data set, excluding any missing values
 ```{r}
 mean_flipper_length = mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
 
-This dataset contains information about penguins including identifying #, which species island they are from, bill length(mm), bill depth(mm), flipper length(mm), body mass(g), sex, and year. There are 344 observations in the dataset, with 8 variables. The mean flipper length is 200.92mm. 
+This data set contains information about penguins including identifying #, which species island they are from, bill length(mm), bill depth(mm), flipper length(mm), body mass(g), sex, and year. There are 344 observations in the data set, with 8 variables. The mean flipper length is 200.92mm. 
 
+loading ggplot to make a scatter plot
+```{r}
+library(ggplot2)
+```
+
+Creating a scatter plot of flipper length vs bill length
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point() +
+  labs(x = "Bill Length (mm)", y = "Flipper Length (mm)", title = "Scatterplot of Flipper Length vs Bill Length")
+```
 
 
 
