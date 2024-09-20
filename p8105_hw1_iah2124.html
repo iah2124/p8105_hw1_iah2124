@@ -417,19 +417,19 @@ length is 200.92mm.</p>
 <p>Viewing the data frame</p>
 <pre class="r"><code>df</code></pre>
 <pre><code>##        sample logical_vec char_vec factor_vec
-## 1   0.5170630       FALSE        h          C
-## 2  -0.5894375        TRUE        s          A
-## 3  -1.1471562        TRUE        h          A
-## 4   0.3855393       FALSE        i          A
-## 5   1.1980410        TRUE        f          A
-## 6  -0.3097206       FALSE        j          A
-## 7   0.7023225        TRUE        f          B
-## 8  -1.5326298       FALSE        q          C
-## 9   0.3721697       FALSE        t          A
-## 10  1.1544451       FALSE        q          B</code></pre>
+## 1   1.0816394        TRUE        k          C
+## 2  -0.6267805       FALSE        x          C
+## 3  -0.8541776       FALSE        t          C
+## 4   0.3363568       FALSE        w          B
+## 5   2.6282510        TRUE        l          A
+## 6  -1.3551209        TRUE        w          A
+## 7   1.0470003        TRUE        j          C
+## 8  -1.0684433       FALSE        b          C
+## 9  -1.1388059       FALSE        w          B
+## 10 -1.6698894       FALSE        x          A</code></pre>
 <p>Means of each variable</p>
 <pre class="r"><code>mean(df$sample)</code></pre>
-<pre><code>## [1] 0.07506366</code></pre>
+<pre><code>## [1] -0.161997</code></pre>
 <pre class="r"><code>mean(df$logical_vec)</code></pre>
 <pre><code>## [1] 0.4</code></pre>
 <pre class="r"><code>mean(df$char_vec)</code></pre>
@@ -445,6 +445,10 @@ mean of the logical vector. These variables are numeric or logical,
 indicating that a mean value can be calculated. For the variables
 character vector and factor vector, no mean can be calculated. This is
 because these variables are neither numeric or logical.</p>
+<p>Explicitly convert variables from one type to another</p>
+<pre class="r"><code>as.numeric(df$logical_vec)
+as.numeric(df$char_vec)
+as.numeric(df$factor_vec)</code></pre>
 </div>
 
 
