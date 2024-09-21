@@ -56,25 +56,27 @@ ggsave("penguins_scatterplot.png")
 
 ## Problem 2
 Creating a data frame
+
 ```{r}
 df = data.frame(
   sample = rnorm(10),
-  logical_vec = rnorm(10)>0,
+  logical_vec = rnorm(10)>0, 
   char_vec = sample(letters, 10, replace = TRUE),
   factor_vec = factor(sample(c("A", "B", "C"), 10, replace = TRUE))
 )
 ```
+
 Viewing the data frame
 ```{r}
-df
+view(df)
 ```
 
 Means of each variable
 ```{r}
-mean(df$sample)
-mean(df$logical_vec)
-mean(df$char_vec)
-mean(df$factor_vec)
+mean_sample = mean(df %>% pull(sample), na.rm = TRUE)
+mean_logical = mean(df %>% pull(logical_vec), na.rm = TRUE)
+mean_char = mean(df %>% pull(char_vec), na.rm = TRUE)
+mean_factor = mean(df %>% pull(factor_vec), na.rm = TRUE)
 ```
 You can find the mean of the data frame sample, you can also find the mean of the logical vector. These variables are numeric or logical, indicating that a mean value can be calculated. For the variables character vector and factor vector, no mean can be calculated. This is because these variables are neither numeric or logical. 
 
@@ -84,3 +86,4 @@ as.numeric(df$logical_vec)
 as.numeric(df$char_vec)
 as.numeric(df$factor_vec)
 ```
+
