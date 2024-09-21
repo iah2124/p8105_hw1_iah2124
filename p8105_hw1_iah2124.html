@@ -412,7 +412,7 @@ is 200.92mm.</p>
 <h2>Problem 2</h2>
 <p>Creating a data frame</p>
 <pre class="r"><code>df = data.frame(
-  sample = rnorm(10),
+  sample_normal = rnorm(10),
   logical_vec = rnorm(10)&gt;0, 
   char_vec = sample(letters, 10, replace = TRUE),
   factor_vec = factor(sample(c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), 10, replace = TRUE))
@@ -420,23 +420,33 @@ is 200.92mm.</p>
 <p>Viewing the data frame</p>
 <pre class="r"><code>view(df)</code></pre>
 <p>Means of each variable</p>
-<pre class="r"><code>mean_sample = mean(df %&gt;% pull(sample), na.rm = TRUE)
-mean_logical = mean(df %&gt;% pull(logical_vec), na.rm = TRUE)
-mean_char = mean(df %&gt;% pull(char_vec), na.rm = TRUE)</code></pre>
-<pre><code>## Warning in mean.default(df %&gt;% pull(char_vec), na.rm = TRUE): argument is not
-## numeric or logical: returning NA</code></pre>
-<pre class="r"><code>mean_factor = mean(df %&gt;% pull(factor_vec), na.rm = TRUE)</code></pre>
-<pre><code>## Warning in mean.default(df %&gt;% pull(factor_vec), na.rm = TRUE): argument is not
-## numeric or logical: returning NA</code></pre>
+<pre class="r"><code>mean(df %&gt;% pull(sample_normal))</code></pre>
+<pre><code>## [1] -0.3061526</code></pre>
+<pre class="r"><code>mean(df %&gt;% pull(logical_vec))  </code></pre>
+<pre><code>## [1] 0.7</code></pre>
+<pre class="r"><code>mean(df %&gt;% pull(char_vec))</code></pre>
+<pre><code>## Warning in mean.default(df %&gt;% pull(char_vec)): argument is not numeric or
+## logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>mean(df %&gt;% pull(factor_vec))</code></pre>
+<pre><code>## Warning in mean.default(df %&gt;% pull(factor_vec)): argument is not numeric or
+## logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
 <p>You can find the mean of the data frame sample, you can also find the
-mean of the logical vector. These variables are numeric or logical,
-indicating that a mean value can be calculated. For the variables
-character vector and factor vector, no mean can be calculated. This is
-because these variables are neither numeric or logical.</p>
+mean of the logical vector. These variables are numeric or logical(true
+valued at 1 and false values at 0), indicating that a mean value can be
+calculated. For the variables character vector and factor vector, no
+mean can be calculated. This is because these variables are neither
+numeric or logical.</p>
 <p>Explicitly convert variables from one type to another</p>
-<pre class="r"><code>as.numeric(df$logical_vec)
-as.numeric(df$char_vec)
-as.numeric(df$factor_vec)</code></pre>
+<pre class="r"><code>mean_logical = mean(df %&gt;% pull(logical_vec) %&gt;% as.numeric(), na.rm = TRUE)
+mean_char = mean(df %&gt;% pull(char_vec) %&gt;% as.numeric(), na.rm = TRUE)
+mean_factor = mean(df %&gt;% pull(factor_vec) %&gt;% as.numeric(), na.rm = TRUE)</code></pre>
+<p>You can now take the mean of the logical and factor variables as the
+converting was able to assign numeric values to the logical and factor
+variables. However, for the character variable you can not take the mean
+since no numeric value can be assigned. The output you get for the
+character vector is NA since it can’t be changed to numeric.</p>
 </div>
 
 

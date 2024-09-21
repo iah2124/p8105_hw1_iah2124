@@ -59,7 +59,7 @@ Creating a data frame
 
 ```{r}
 df = data.frame(
-  sample = rnorm(10),
+  sample_normal = rnorm(10),
   logical_vec = rnorm(10)>0, 
   char_vec = sample(letters, 10, replace = TRUE),
   factor_vec = factor(sample(c("A", "B", "C"), 10, replace = TRUE))
@@ -73,17 +73,20 @@ view(df)
 
 Means of each variable
 ```{r}
-mean_sample = mean(df %>% pull(sample), na.rm = TRUE)
-mean_logical = mean(df %>% pull(logical_vec), na.rm = TRUE)
-mean_char = mean(df %>% pull(char_vec), na.rm = TRUE)
-mean_factor = mean(df %>% pull(factor_vec), na.rm = TRUE)
+mean(df %>% pull(sample_normal))
+mean(df %>% pull(logical_vec))  
+mean(df %>% pull(char_vec))
+mean(df %>% pull(factor_vec))
 ```
-You can find the mean of the data frame sample, you can also find the mean of the logical vector. These variables are numeric or logical, indicating that a mean value can be calculated. For the variables character vector and factor vector, no mean can be calculated. This is because these variables are neither numeric or logical. 
+You can find the mean of the data frame sample, you can also find the mean of the logical vector. These variables are numeric or logical(true valued at 1 and false values at 0), indicating that a mean value can be calculated. For the variables character vector and factor vector, no mean can be calculated. This is because these variables are neither numeric or logical. 
 
 Explicitly convert variables from one type to another
 ```{r eval=FALSE, include=TRUE}
-as.numeric(df$logical_vec)
-as.numeric(df$char_vec)
-as.numeric(df$factor_vec)
+mean_logical = mean(df %>% pull(logical_vec) %>% as.numeric(), na.rm = TRUE)
+mean_char = mean(df %>% pull(char_vec) %>% as.numeric(), na.rm = TRUE)
+mean_factor = mean(df %>% pull(factor_vec) %>% as.numeric(), na.rm = TRUE)
 ```
+
+You can now take the mean of the logical and factor variables as the converting was able to assign numeric values to the logical and factor variables. However, for the character variable you can not take the mean since no numeric value can be assigned. The output you get for the character vector is NA since it can't be changed to numeric. 
+
 
