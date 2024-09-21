@@ -19,6 +19,11 @@ Loading tidyverse package - includes dplyr for data manipulation
 library(tidyverse)
 ```
 
+Viewing the dataset
+```{r}
+view(penguins)
+```
+
 Size of the dataset
 ```{r}
 num_rows = nrow(penguins)
@@ -27,10 +32,10 @@ num_cols = ncol(penguins)
 
 Finding the mean flipper length from the penguins data set, excluding any missing values
 ```{r}
-mean_flipper_length = mean(penguins$flipper_length_mm, na.rm = TRUE)
+mean(penguins[["flipper_length_mm"]], na.rm = TRUE)
 ```
 
-This data set contains information about penguins including identifying #, which species island they are from, bill length(mm), bill depth(mm), flipper length(mm), body mass(g), sex, and year. There are 344 observations in the data set, with 8 variables. The mean flipper length is 200.92mm. 
+This data set contains information about penguins including the species, which island they are from, bill length(mm), bill depth(mm), flipper length(mm), body mass(g), sex, and year. There are 344 observations in the data set, with 8 variables. The mean flipper length is 200.92mm. 
 
 loading ggplot to make a scatter plot
 ```{r}

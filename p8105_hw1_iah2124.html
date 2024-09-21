@@ -379,17 +379,20 @@ display: none;
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<p>Viewing the dataset</p>
+<pre class="r"><code>view(penguins)</code></pre>
 <p>Size of the dataset</p>
 <pre class="r"><code>num_rows = nrow(penguins)
 num_cols = ncol(penguins)</code></pre>
 <p>Finding the mean flipper length from the penguins data set, excluding
 any missing values</p>
-<pre class="r"><code>mean_flipper_length = mean(penguins$flipper_length_mm, na.rm = TRUE)</code></pre>
-<p>This data set contains information about penguins including
-identifying #, which species island they are from, bill length(mm), bill
-depth(mm), flipper length(mm), body mass(g), sex, and year. There are
-344 observations in the data set, with 8 variables. The mean flipper
-length is 200.92mm.</p>
+<pre class="r"><code>mean(penguins[[&quot;flipper_length_mm&quot;]], na.rm = TRUE)</code></pre>
+<pre><code>## [1] 200.9152</code></pre>
+<p>This data set contains information about penguins including the
+species, which island they are from, bill length(mm), bill depth(mm),
+flipper length(mm), body mass(g), sex, and year. There are 344
+observations in the data set, with 8 variables. The mean flipper length
+is 200.92mm.</p>
 <p>loading ggplot to make a scatter plot</p>
 <pre class="r"><code>library(ggplot2)</code></pre>
 <p>Creating a scatter plot of flipper length vs bill length</p>
@@ -416,22 +419,22 @@ length is 200.92mm.</p>
 )</code></pre>
 <p>Viewing the data frame</p>
 <pre class="r"><code>df</code></pre>
-<pre><code>##        sample logical_vec char_vec factor_vec
-## 1   1.0816394        TRUE        k          C
-## 2  -0.6267805       FALSE        x          C
-## 3  -0.8541776       FALSE        t          C
-## 4   0.3363568       FALSE        w          B
-## 5   2.6282510        TRUE        l          A
-## 6  -1.3551209        TRUE        w          A
-## 7   1.0470003        TRUE        j          C
-## 8  -1.0684433       FALSE        b          C
-## 9  -1.1388059       FALSE        w          B
-## 10 -1.6698894       FALSE        x          A</code></pre>
+<pre><code>##         sample logical_vec char_vec factor_vec
+## 1  -0.95455582       FALSE        m          A
+## 2  -0.35271335       FALSE        n          A
+## 3   1.23708016        TRUE        a          A
+## 4   0.64086283       FALSE        w          A
+## 5  -0.16283603        TRUE        q          B
+## 6   0.29103049        TRUE        r          A
+## 7   0.06271991        TRUE        f          A
+## 8  -0.86432384        TRUE        y          A
+## 9   0.92656312       FALSE        p          A
+## 10  1.15623548        TRUE        w          A</code></pre>
 <p>Means of each variable</p>
 <pre class="r"><code>mean(df$sample)</code></pre>
-<pre><code>## [1] -0.161997</code></pre>
+<pre><code>## [1] 0.1980063</code></pre>
 <pre class="r"><code>mean(df$logical_vec)</code></pre>
-<pre><code>## [1] 0.4</code></pre>
+<pre><code>## [1] 0.6</code></pre>
 <pre class="r"><code>mean(df$char_vec)</code></pre>
 <pre><code>## Warning in mean.default(df$char_vec): argument is not numeric or logical:
 ## returning NA</code></pre>
